@@ -48,12 +48,12 @@
 
       <nav id="navbar" class="nav-menu navbar">
         <ul>
-          <li><a href="/" id="navbarlink1" class="nav-link scrollto"><i class="bx bx-home"></i> <span>Home</span></a></li>
+          <li><a href="/" id="navbarlink1" class="nav-link scrollto" onclick="window.location.hash = ''"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <!-- <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li> -->
-          <li><a href="/#resume" id="navbarlink2" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Curriculum Vitae</span></a></li>
-          <li><a href="/#portfolio" id="navbarlink3" class="nav-link scrollto active"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+          <li><a href="/#resume" id="navbarlink2" class="nav-link scrollto" onclick="window.location.hash = ''"><i class="bx bx-file-blank"></i> <span>Curriculum Vitae</span></a></li>
+          <li><a href="/#portfolio" id="navbarlink3" class="nav-link scrollto active" onclick="window.location.hash = ''"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
           <!-- <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li> -->
-          <li><a href="/#contact" id="navbarlink4" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+          <li><a href="/#contact" id="navbarlink4" class="nav-link scrollto" onclick="window.location.hash = ''"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
       </nav>
       <!-- .nav-menu -->
@@ -133,7 +133,13 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script>
+    function redirect(url)
+    {
+      window.location.href = url;
+      return false;
+    }
+  </script>
 </body>
 
 </html>
