@@ -148,7 +148,7 @@
         <div class="row">
           <div class="col-lg-12" data-aos="fade-up" data-aos-delay="100">
             <h3 class="resume-title">Summary</h3>
-            <h5>Seasoned professional with a solid background in software development, demonstrating 4 years of expertise in developing applications using Angular, React, and Node.js. Further, I bring 4 years of experience in application auditing, specializing in logical access management and application controls. Proficient in both application development and the oversight of security and compliance measures.</h5>
+            <h5>Seasoned professional with a solid background in software development, demonstrating <span class="yearsSince" data-date="2016-01-01"></span> years of expertise in developing applications. Further, I bring <span class="yearsSince" data-date="2019-10-01"></span> years of experience in application auditing, specializing in logical access management and application controls. Proficient in both application development and the oversight of security and compliance measures.</h5>
           </div>
         </div>
 
@@ -492,6 +492,34 @@
     {
       window.location.href = project;
     }
+
+    // JavaScript function to calculate years since a specific date
+    const getYearsSince = (dateString) => {
+      const date = new Date(dateString); // Convert the date string to a Date object
+      const currentDate = new Date(); // Get the current date
+
+      // Calculate the difference in years
+      let yearsDifference = currentDate.getFullYear() - date.getFullYear();
+
+      // Adjust if the current date is before the anniversary of the date
+      if (
+          currentDate.getMonth() < date.getMonth() ||
+          (currentDate.getMonth() === date.getMonth() && currentDate.getDate() < date.getDate())
+      ) {
+          yearsDifference--; // Subtract 1 year if the anniversary hasn't occurred yet
+      }
+
+      return yearsDifference;
+    };
+
+    // Automatically update all spans with the class "yearsSince"
+    document.addEventListener('DOMContentLoaded', () => {
+      const yearsSpans = document.querySelectorAll('.yearsSince');
+      yearsSpans.forEach(span => {
+          const date = span.getAttribute('data-date'); // Get the date from the data-date attribute
+          span.textContent = getYearsSince(date); // Update the span with the calculated years
+      });
+    });
   </script>
 
 </body>
